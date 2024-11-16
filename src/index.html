@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Vanilla JavaScript App</title>
+  <title>No Front-End Framework</title>
 </head>
-
 <body>
-  <main>
-    <h1>Vanilla JavaScript App</h1>
-  </main>
+  <h1>API Response</h1>
+  <p id="api-response">Loading...</p>
+  <script>
+    fetch('https://node-portal-cddpc7hbdue4fbf5.centralus-01.azurewebsites.net/api')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('api-response').textContent = data.message;
+      })
+      .catch(error => console.error('Error:', error));
+  </script>
 </body>
-
 </html>
